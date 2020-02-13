@@ -1,6 +1,6 @@
 FROM alpine:3.8
 
-LABEL maintainer="Mohammad Sharaf Hijjeh sharaf.hijjeh@outlook.com"
+
 
 ENV IONIC_VERSION 4.5.0
 ENV CORDOVA_VERSION 8.0.0
@@ -14,6 +14,8 @@ RUN apk upgrade && apk update \
 
 EXPOSE 8100 8200
 
-STOPSIGNAL SIGTERM
+ 
 
 CMD ["node"]
+
+RUN ionic serve
