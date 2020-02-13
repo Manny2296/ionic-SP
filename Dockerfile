@@ -18,6 +18,6 @@ EXPOSE 8100 8200
 
 CMD ["node"]
 
-cd /ionic-SP
+WORKDIR /ionic-SP
 
 RUN ionic serve
