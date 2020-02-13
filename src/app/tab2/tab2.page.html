@@ -1,9 +1,49 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Two
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content></ion-content>
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-back-button text="Back" icon="ios-arrow-round-back">
+            </ion-back-button>
+          </ion-buttons>
+      <ion-title>
+          <h1>Fale Conosco</h1>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content >
+  <form >
+    <ion-item>
+        <ion-label position="fixed">Nome</ion-label>
+      </ion-item>
+  <ion-input type="text"  [(ngModel)]="usuario.nome"  name="nome" placeholder=" Digite seu Nome" [ngModelOptions]="{standalone: true}"></ion-input>
+
+  <ion-item>
+      <ion-label position="fixed">E-mail</ion-label>
+    </ion-item>
+<ion-input type="text" [(ngModel)]="usuario.E-mail" placeholder= "Digite seu E-mail" [ngModelOptions]="{standalone: true}"></ion-input>
+
+<ion-item>
+    <ion-label position="fixed">Empresa</ion-label>
+  </ion-item>
+<ion-input type="text" [(ngModel)]="usuario.Empresa" placeholder=" Nome da Empresa" [ngModelOptions]="{standalone: true}"></ion-input>
+
+<ion-item>
+    <ion-label position="fixed">Cidade</ion-label>
+  </ion-item>
+<ion-input type="text" [(ngModel)]="usuario.Cidade" placeholder=" Digite sua Cidade" [ngModelOptions]="{standalone: true}"></ion-input>
+
+<ion-item>
+    <ion-label position="fixed">Estado</ion-label>
+  </ion-item>
+<ion-input type="text" [(ngModel)]="usuario.Estado" placeholder=" Digite seu Estado" [ngModelOptions]="{standalone: true}"></ion-input>
+
+<ion-item>
+    <ion-label position="fixed">Mensagem</ion-label>
+  </ion-item>
+<ion-input type="text" [(ngModel)]="usuario.Mensagem" placeholder=" Digite sua Mensagem" [ngModelOptions]="{standalone: true}"></ion-input>
+
+<ion-button expand="block"    color="danger" (click)="presentAlert()">Enviar Mensagem</ion-button>
+</form>
+
+</ion-content>

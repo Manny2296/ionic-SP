@@ -10,6 +10,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+   
+  pages: any[] = [
+   {titre:'Sócios' , icon:'ios-contacts', url: '/socios'},
+   {titre:'Serviços' , icon:'ios-cog', url: '/servicos'},
+   {titre:'Leis Vigentes' , icon:'ios-bookmarks', url: '/leisvigentes'},
+   {titre:'Sobre a IMALAB VET' , icon:'ios-bulb', url: '/sobre-imalab'}, 
+  ];
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
