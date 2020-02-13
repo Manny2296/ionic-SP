@@ -16,7 +16,6 @@ EXPOSE 8100 8200
 
  
 
-CMD ["node"]
+WORKDIR ionic-SP
 
-RUN cd ./home/manny2296/ionic-sp/
-RUN ionic serve
+CMD ["ionic", "serve", "--all", "--port", "8100", "--livereload-port", "35729"]
