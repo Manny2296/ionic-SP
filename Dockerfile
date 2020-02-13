@@ -14,7 +14,7 @@ RUN apk upgrade && apk update \
 
 EXPOSE 8100 8200
 
- 
+RUN cd ionic-SP 
 
 WORKDIR ionic-SP
 
