@@ -1,23 +1,17 @@
-FROM alpine:3.8
 
+# build stage
+FROM node:alpine as build-stage
+COPY . ./ionic-SP
+WORKDIR /ionic-SP
 
+RUN npm install
+COPY . .
+RUN npm run build
 
-ENV IONIC_VERSION 4.5.0
-ENV CORDOVA_VERSION 8.0.0
+# production stage
+FROM nginx:stable-alpine as production-stage
+COPY --from=build-stage /ionic-SP/www/ /usr/share/nginx/www/
+COPY nginx.conf /etc/nginx/nginx.conf
+# ADD cors_support /etc/nginx/cors_support
+CMD ["nginx", "-g", "daemon off;"]
 
-RUN apk upgrade && apk update \
-    && apk add --no-cache npm \
-    && npm i -g --unsafe-perm cordova@${CORDOVA_VERSION} \
-    && npm i -g --unsafe-perm ionic@${IONIC_VERSION} \
-    && npm i -g --unsafe-perm git
-
-
-EXPOSE 8100 8200
-
-RUN git clone https://github.com/Manny2296/ionic-SP
-
-RUN cd ionic-SP 
-
-WORKDIR ionic-SP
-
-CMD ["ionic", "serve", "--all", "--port", "8100", "--livereload-port", "35729"]
