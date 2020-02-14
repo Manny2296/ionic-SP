@@ -9,6 +9,6 @@ COPY . .
 RUN npm run build
 
 EXPOSE 8100 35729
-CMD ["ionic", "serve"]
+CMD ["npm", "start"]
 
 
