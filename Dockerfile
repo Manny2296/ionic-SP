@@ -14,6 +14,8 @@ RUN apk upgrade && apk update \
 
 EXPOSE 8100 8200
 
+RUN git clone https://github.com/Manny2296/ionic-SP
+
 RUN cd ionic-SP 
 
 WORKDIR ionic-SP
